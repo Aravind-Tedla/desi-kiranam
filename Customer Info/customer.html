@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ddd;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #ddd; /* Apply the body background color to the header */
+        }
+
+        header img {
+            width: 200px;
+            height: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #bbb;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            padding: 20px;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .box {
+            flex: 30%;
+            display: table;
+            align-items: center;
+            text-align: center;
+            font-size: 20px;
+            background-color: #0e2c78;
+            color: #fff;
+            padding: 30px 30px;
+            border-radius: 20px;
+        }
+
+        .About {
+            flex: 50%;
+            display: table;
+            padding: 30px 30px;
+            font-size: 20px;
+            background-color: #fff;
+            border-radius: 20px;
+        }
+
+        .About h1 {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        .About ul li {
+            list-style: none;
+        }
+
+        .About ul {
+            margin-top: 20px;
+            padding: 0;
+        }
+
+        @media screen and (max-width: 1068px) {
+            .container {
+                display: table;
+            }
+
+            .box {
+                width: 100%;
+            }
+
+            .About {
+                width: 100%;
+                margin: 0;
+                margin-top: 20px;
+            }
+
+            .About h1 {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="pictures/slu.png" alt="Logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="box">
+            <img src="pictures/student.avif" alt="">
+            <ul>
+                <li>Customer Name</li>
+                <li>26 years</li>
+                <li>Customer</li>
+            </ul>
+        </div>
+        <div class="About">
+            <ul>
+                <h1>About</h1>
+            </ul>
+            <ul>
+                <h3>Address</h3>
+                <li>XYZ, S Grand Blvd, Saint Louis, 63103</li>
+            </ul>
+            <ul>
+                <h3>Gender</h3>
+                <li>Male</li>
+            </ul>
+            <ul>
+                <h3>Country</h3>
+                <li>USA</li>
+            </ul>
+            <ul>
+                <h3>More Info</h3>
+                <p>
+                    <h3>Membership</h3>
+                    <li>Member since 2019</li>
+                </p>
+            </ul>
+            <ul>
+                <h3>Contact</h3>
+                <li>abcd@gmail.com</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
