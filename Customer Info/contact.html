@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Contact Us</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
     <style>
         body {
@@ -38,68 +38,73 @@
             margin: 0 10px;
         }
 
-        .login-form {
+        .main-container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
             background-color: #fff;
             border-radius: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 40px;
+            padding: 20px;
             margin: 20px;
+            width: 100%;
+            max-width: 100%; /* Set max-width to 100% for responsiveness */
         }
 
-        .login-form h2 {
+        .main-container h2 {
             text-align: center;
             margin-bottom: 20px;
         }
 
-        .login-form form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .form-container {
+            flex: 1;
+            padding: 20px;
         }
 
-        .login-form input {
-            margin: 5px;
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input,
+        textarea {
+            margin-bottom: 10px;
             padding: 10px;
             border-radius: 5px;
             border: 1px solid #ccc;
+            width: 100%;
         }
 
-        .login-form .form-button {
-            margin: 10px;
+        button {
+            margin-top: 10px;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
+            background-color: #0d1425;
+            color: #fff;
             cursor: pointer;
         }
 
-        .login-form .login-button {
-            background-color: #0d1425;
-            color: #fff;
-        }
-
-        .login-form .login-button:hover {
+        button:hover {
             background-color: #0a1120;
         }
 
-        .signup-button {
-            margin-top: 10px;
-            text-align: center;
+        .picture-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
         }
 
-        .signup-button a {
-            text-decoration: none;
-            padding: 10px 20px;
-            background-color: #0d1425;
-            color: #fff;
-            border-radius: 5px;
-            display: inline-block;
-        }
-
-        .signup-button a:hover {
-            background-color: #0a1120;
+        .picture-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -116,31 +121,29 @@
         </nav>
     </header>
 
-    <div class="login-form">
-        <h2>Login</h2>
-        <form id="loginForm">
-            <input type="text" id="username" name="username" placeholder="Username" required><br>
-            <input type="password" id="password" name="password" placeholder="Password" required><br>
-            <button class="form-button login-button" type="button">Login</button>
-            <h6>Or click the below Button to sign up as a New User</h6>
-            <div class="signup-button">
-                <a href="signup.html">Sign Up</a>
-            </div>
-        </form>
+    <div class="main-container">
+        <div class="form-container">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required><br>
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="picture-container">
+            <img src="pictures/picture1.jpg" alt="Picture 1">
+        </div>
     </div>
 
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-
-            // Simple example where username is "user" and password is "pass"
-            if (username === "user" && password === "pass") {
-                window.location.href = 'customer.html';
-            } else {
-                alert('Invalid username or password');
-            }
+            // Add your contact form submission logic here
+            alert('Thank you for your message! We will get back to you soon.');
         });
     </script>
 </body>
