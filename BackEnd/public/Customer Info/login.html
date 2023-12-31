@@ -119,9 +119,9 @@
     <div class="login-form">
         <h2>Login</h2>
         <form id="loginForm">
-            <input type="text" id="username" name="username" placeholder="Username" required><br>
-            <input type="password" id="password" name="password" placeholder="Password" required><br>
-            <button class="form-button login-button" type="button">Login</button>
+            <input type="text" id="email" name="email" placeholder="email" required value="a@gmail.com"><br>
+            <input type="password" id="password" name="password" placeholder="Password" required value="Akhil@123"><br>
+            <button class="form-button login-button" type="submit">Login</button>
             <h6>Or click the below Button to sign up as a New User</h6>
             <div class="signup-button">
                 <a href="signup.html">Sign Up</a>
@@ -130,17 +130,37 @@
     </div>
 
     <script>
+        // Handle login form submission
         document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
+            event.preventDefault();  // Prevent default form submission
 
-            // Simple example where username is "user" and password is "pass"
-            if (username === "user" && password === "pass") {
-                window.location.href = 'customer.html';
-            } else {
-                alert('Invalid username or password');
-            }
+            const formData = new FormData(this);
+            console.log(Object.fromEntries(formData));
+            fetch('http://localhost:3000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(Object.fromEntries(formData))
+            })
+            .then(response => {
+                // Check if the login was successful
+                if (response.ok) {
+                    return response.json(); // Always return the JSON object to the next then()
+                } else {
+                    // If there's an error, parse the JSON to get the error message
+                    return response.json();
+                }
+            })
+            .then(data => {
+                if (data && data.redirectUrl) {
+                    // If the server sent a redirect URL, redirect the browser to that URL
+                    window.location.href = data.redirectUrl;
+                } else if (data) {
+                    console.log(data.message); // Displaying the error message
+                }
+            })
+            .catch(error => console.error('Error:', error));
         });
     </script>
 </body>

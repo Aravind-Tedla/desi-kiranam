@@ -1,44 +1,29 @@
-# Ignore VS Code settings folder
-.vscode
+# Dependency directories
+node_modules/
+**/node_modules/
 
-# Ignore node_modules folder
-node_modules
+# Environment variables
+.env
+**/.env
 
-# Ignore DS_Store files
+# macOS system files
 .DS_Store
 
-HELP.md
-.gradle
+# Logs
+*.log
+
+# Compiled source
 build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
+dist/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+# Cache
+.cache/
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+# Test coverage
+coverage/
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+# Editor directories and files
+.vscode/
 
+# Lock files
+*.lock

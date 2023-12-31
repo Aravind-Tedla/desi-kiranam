@@ -1,0 +1,64 @@
+# Dependency directories
+node_modules/
+**/node_modules/
+
+# Environment variables
+.env
+**/.env
+
+# macOS system files
+.DS_Store
+
+# Logs
+*.log
+
+# Compiled source
+build/
+dist/
+
+# Cache
+.cache/
+
+# Test coverage
+coverage/
+
+# Editor directories and files
+.vscode/
+
+# Lock files
+*.lock
+
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/

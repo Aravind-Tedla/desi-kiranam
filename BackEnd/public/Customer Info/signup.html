@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ddd;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #ddd;
+        }
+
+        header img {
+            width: 200px;
+            height: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin: 20px;
+        }
+
+        .signup-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .signup-form form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .signup-form label {
+            margin-bottom: 8px;
+        }
+
+        .signup-form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        .signup-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .signup-form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="slu.png" alt="Logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="signup-form">
+        <h2>Sign Up</h2>
+        <form id="signupForm" action="#" method="post">
+            <label for="first_name">First Name</label>
+            <input type="text" id="first_name" name="first_name" required value="John">
+
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="last_name" required value="John">
+
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" required value="John@gmail.com">
+
+            <label for="banner_id">Banner ID</label>
+            <input type="text" id="banner_id" name="banner_id" required value="001246437">
+
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required value="John">
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required value="John@1234">
+
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Correctly getting values from the input fields
+            var newFirstName = document.getElementById('first_name').value;
+            var newLastName = document.getElementById('last_name').value;
+            var newEmail = document.getElementById('email').value;
+            var newBannerid = parseInt(document.getElementById('banner_id').value, 10); // Parse the value as an integer
+            var newUsername = document.getElementById('username').value;
+            var newPassword = document.getElementById('password').value;
+
+            // Uncomment and set sample values for the fields
+            // var newFirstName = 'John';
+            // var newLastName = 'Doe';
+            // var newEmail = 'john.doe@example.com';
+            // var newPhoneNumber = 1234567;
+            // var newUsername = 'johndoe';
+            // var newPassword = 'securepassword';
+
+            // Prepare data to send to the server
+            var data = {
+                first_name: newFirstName,
+                last_name: newLastName,
+                email: newEmail,
+                banner_id: newBannerid,
+                username: newUsername,
+                password: newPassword
+            };
+            // console.log(data);
+            console.log("Front end JSON Data:",JSON.stringify(data));
+            // Make a POST request to the server
+            fetch('http://localhost:3000/user/signupUser', {
+                method: 'POST',
+                headers: {
+                    // 'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                    // 'Access-Control-Allow-Origin': '*' // Allowing CORS (if needed)
+                },
+                body: JSON.stringify(data),
+                // mode: 'no-cors'  // Set the mode to 'no-cors'
+            })
+            .then(response => {
+            if (response.ok) {
+                // Request was successful, you can handle the response here if needed.
+                console.log('User registered successfully.');
+            } else {
+                // Request failed, handle the error here.
+                console.error('Failed to register user:', response.status, response.statusText);
+                }
+            })
+            .catch(error => {
+                // Handle any network errors or exceptions.
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
